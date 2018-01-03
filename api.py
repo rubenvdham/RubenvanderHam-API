@@ -4,18 +4,19 @@ Created on 16 nov. 2017
 @author: Ruben
 '''
 
-from bottle import run,route, error ,request,response, get
+from bottle import run,route, error ,request,response, get, put, delete
 import time
 from json import dumps
-
 myEpochAge = 894697740
+
+
 
 @get('/myip')
 def returnIP():
     response.content_type = 'text/html; charset=UTF-8'
     return "<p>"+request.get('REMOTE_ADDR')+"</p>"
     
-@route("/")
+@get("/")
 def hello():
     return "Welcome to the API, For documentation visit '/documentation'"
 
@@ -23,7 +24,7 @@ def hello():
 def getAge():
     currentTime = time.time()
     differenceDays=((currentTime-myEpochAge)/3600)/24
-    JSON = [{"years":round(differenceDays/365,2)}, {"days":int(differenceDays)}]
+    JSON = [{"years":round(differenceDays/365,2), "days":int(differenceDays)}]
     response.content_type = 'application/json'
     return dumps(JSON)
 
@@ -36,6 +37,7 @@ def dumpDocumentation():
         {"location":"/documentation", "methods":"GET", "returnType":"JSON", "description":"Returns the documentation of this API in JSON"}]
     return dumps(JSON)
 
+
 @error(404)
 def error404(error):
     response.content_type = 'text/html; charset=UTF-8'
@@ -47,4 +49,4 @@ def error500(error):
     return 'Shitt, something went wrong....'
 
 if __name__ == '__main__':
-    run(host='localhost', port=8000,reloader=True)
+    run(host='0.0.0.0', port=8001,reloader=True)
