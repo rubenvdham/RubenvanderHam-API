@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.project
+.pydevproject
+.idea
+.settings
+*.iml
+api
