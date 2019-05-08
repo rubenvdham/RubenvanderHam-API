@@ -24,7 +24,7 @@ def hello():
 def getAge():
     currentTime = time.time()
     differenceDays=((currentTime-myEpochAge)/3600)/24
-    JSON = [{"years":round(differenceDays/365,2), "days":int(differenceDays)}]
+    JSON = [{"years":round(differenceDays/365.25,2), "days":int(differenceDays)}]
     response.content_type = 'application/json'
     return dumps(JSON)
 
