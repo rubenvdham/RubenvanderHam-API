@@ -1,2 +1,2 @@
-# RubenvanderHam-API
-The source code of https://rubenvanderham.nl/api/
+# RubenvanderHam-API 
+The successor of the python based https://rubenvanderham.nl/api/
