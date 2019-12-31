@@ -1,2 +1,2 @@
 # RubenvanderHam-API
-The source code of https://rubenvanderham.nl/api/
+The source code of the former https://rubenvanderham.nl/api/
